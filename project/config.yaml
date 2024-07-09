@@ -1,4 +1,5 @@
-images_train: "../../data/images/train"
-images_test: "../../data/images/test"
-masks_train: "../../data/masks/train"
-masks_test: "../../data/mask/test"
+images_train: "../data/images/train"
+images_test: "../data/images/test"
+masks_train: "../data/masks/train"
+masks_test: "../data/masks/test"
+
