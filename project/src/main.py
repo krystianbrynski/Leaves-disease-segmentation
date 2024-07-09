@@ -1,7 +1,8 @@
 import click
 import yaml
+from matplotlib import pyplot as plt
 
-from dataset_and_dataloader import dataset
+from dataset_and_dataloader import dataset, dataloader
 
 
 @click.command()
@@ -15,7 +16,11 @@ def run_pipeline(config) -> None:
         train_masks_dir = config_data.get('masks_train')
         test_masks_dir = config_data.get('masks_test')
 
-        train_dataset, test_dataset = dataset.datasets(train_images_dir, test_images_dir, train_masks_dir, test_masks_dir)
+        batch_size = config_data.get('batch_size')
+
+        train_dataset, test_dataset = dataset.datasets(train_images_dir, test_images_dir, train_masks_dir,test_masks_dir)
+
+        train_dataloader, test_dataloader = dataloader.dataloaders(train_dataset, test_dataset, batch_size)
 
 
 if __name__ == "__main__":
