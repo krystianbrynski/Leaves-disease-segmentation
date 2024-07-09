@@ -1,7 +1,9 @@
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader
+
+from project.src.dataset_and_dataloader.dataset import LeafSegmentationDataset
 
 
-def dataloaders(train_dataset: Dataset, test_dataset: Dataset, batch_size: int) -> tuple[DataLoader, DataLoader]:
+def dataloaders(train_dataset: LeafSegmentationDataset, test_dataset: LeafSegmentationDataset, batch_size: int) -> tuple[DataLoader, DataLoader]:
     train_dataloader = DataLoader(
         dataset=train_dataset,
         batch_size=batch_size,
@@ -11,7 +13,7 @@ def dataloaders(train_dataset: Dataset, test_dataset: Dataset, batch_size: int) 
     test_dataloader = DataLoader(
         dataset=test_dataset,
         batch_size=batch_size,
-        shuffle=True
+        shuffle=False
     )
 
     return train_dataloader, test_dataloader
