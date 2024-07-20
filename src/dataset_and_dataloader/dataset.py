@@ -25,8 +25,8 @@ class LeafSegmentationDataset(Dataset):
         mask_path = os.path.join(self.masks_dir, self.masks[id])
 
         image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB).astype(np.float32)
-        mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE).astype(np.float32)
-        mask[mask == 38] = 1
+        mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+        mask[mask > 0] = 1  # One class (binary) segmentation
 
         if self.transform is not None:
             augmented = self.transform(image=image, mask=mask)
@@ -41,7 +41,7 @@ transform_train = A.Compose(
         A.Resize(512, 512),
         A.HorizontalFlip(p=0.5),
         A.VerticalFlip(p=0.5),
-        A.Rotate(limit=360, p=0.7, border_mode=0),
+        A.Rotate(limit=360, p=0.7),
         A.Normalize(
             mean=(0.0, 0.0, 0.0),
             std=(1.0, 1.0, 1.0),
