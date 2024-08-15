@@ -1,10 +1,15 @@
-images: "../data/images"
-masks: "../data/masks"
+images: "../data/raw_data/images"
+masks: "../data/raw_data/masks"
 
-train_masks: "../split_data/masks/train"
-test_masks: "../split_data/masks/test"
-train_images: "../split_data/images/train"
-test_images: "../split_data/images/test"
+train_masks: "../data/split_data/masks/train"
+test_masks: "../data/split_data/masks/test"
+train_images: "../data/split_data/images/train"
+test_images: "../data/split_data/images/test"
+valid_images: "../data/split_data/images/valid"
+valid_masks: "../data/split_data/masks/valid"
+
+model_path: '../best_model/saved_model.pth'
 
 batch_size: 32
+epochs: 10000
 
