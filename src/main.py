@@ -58,7 +58,5 @@ def run_pipeline(config) -> None:
         model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs)
         test(model, test_dataloader, device, model_path)
 
-
-
 if __name__ == "__main__":
     run_pipeline()
