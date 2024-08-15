@@ -1,6 +1,8 @@
 import click
 import yaml
 
+from train.train_model import train
+
 from dataset_and_dataloader.dataset import datasets
 from dataset_and_dataloader.split_and_copy import split_data
 from dataset_and_dataloader.dataloader import dataloaders
@@ -52,6 +54,9 @@ def run_pipeline(config) -> None:
                                                                           test_dataset,
                                                                           valid_dataset,
                                                                           batch_size)
+
+        model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs)
+
 
 if __name__ == "__main__":
     run_pipeline()
