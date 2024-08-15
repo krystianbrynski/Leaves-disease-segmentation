@@ -13,7 +13,7 @@ def copy_data(images: str, new_images_dir: str, new_masks_dir: str, images_dir: 
 
 
 def split_data(images_dir: str, masks_dir: str, train_masks_dir: str, test_masks_dir: str, train_images_dir: str,
-               test_images_dir: str, valid_images_dir: str, valid_masks_dir: str, test_size: int) -> None:
+               test_images_dir: str, valid_images_dir: str, valid_masks_dir: str) -> None:
     images_file = os.listdir(images_dir)  # all files in images dir
     masks_file = os.listdir(masks_dir)  # all files in masks dir
 

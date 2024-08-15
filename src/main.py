@@ -15,7 +15,6 @@ def run_pipeline(config) -> None:
         config_data = yaml.safe_load(file)
 
         batch_size = config_data.get('batch_size')  # load batch size
-        test_size = config_data.get('test_size')  # load test size
         num_epochs = config_data.get('epochs')  # load num of epochs
 
         model_path = config_data.get('model_path')  # path to save model
@@ -38,9 +37,7 @@ def run_pipeline(config) -> None:
             train_images_dir,
             test_images_dir,
             valid_images_dir,
-            valid_masks_dir,
-            test_size
-
+            valid_masks_dir
         )  # functionality split data and copy to new dir
 
         train_dataset, test_dataset, valid_dataset = datasets(train_images_dir,
@@ -57,6 +54,7 @@ def run_pipeline(config) -> None:
 
         model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs)
         test(model, test_dataloader, device, model_path)
+
 
 if __name__ == "__main__":
     run_pipeline()
