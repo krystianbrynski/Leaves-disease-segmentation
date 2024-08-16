@@ -7,6 +7,7 @@ I used Jupyter Notebook to analyze the data (photos) and also I chose the Unet m
 Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
 Model architecture: 
+![Screenshot](https://github.com/krystianbrynski/Leaves-disease-segmentation/blob/main/photos)
 
 ## Description of files:
 - **main.py -**
@@ -29,8 +30,6 @@ Model architecture:
   The file where model training takes place
 
 - **test_model.py** - The file where model is testing
-
-- **best_model** -There is saved best model
 
 - **scores.txt** - It keeps model scores
 
