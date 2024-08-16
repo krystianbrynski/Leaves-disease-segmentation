@@ -7,7 +7,7 @@ I used Jupyter Notebook to analyze the data (photos) and also I chose the Unet m
 Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
 Model architecture: 
-![Screenshot](https://github.com/krystianbrynski/Leaves-disease-segmentation/blob/main/photos)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/Unet.png)
 
 ## Description of files:
 - **main.py -**
