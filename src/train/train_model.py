@@ -4,11 +4,15 @@ from torch import optim, nn
 from tqdm import tqdm
 import segmentation_models_pytorch as smp
 from src.train.earlystopping import EarlyStopping
+from src.model.model import Unet
 
 
-def train(train_dataloader, valid_dataloader, model_path: str, num_epochs: int):
+def train(train_dataloader, valid_dataloader, model_path: str, num_epochs: int, pretrained: bool):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = smp.Unet('resnet34', encoder_weights='imagenet', in_channels=3, classes=1).to(device)
+    if pretrained:
+        model = smp.Unet('resnet34', encoder_weights='imagenet', in_channels=3, classes=1).to(device)
+    else:
+        model = Unet(in_channels=3,num_classes=1).to(device)
     optimizer = optim.AdamW(model.parameters(), lr=0.0001)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
     early_stopping = EarlyStopping(patience=8, path=model_path)

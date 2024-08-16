@@ -19,6 +19,7 @@ def run_pipeline(config) -> None:
 
         model_path = config_data.get('model_path')  # path to save model
         scores_path = config_data.get('scores_path')  # patho to save scores
+        pretrained = config_data.get('pretrained')
 
         images_dir = config_data.get('images')  # load images dir
         masks_dir = config_data.get('masks')  # load masks dir
@@ -53,7 +54,7 @@ def run_pipeline(config) -> None:
                                                                           valid_dataset,
                                                                           batch_size)
 
-        model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs)
+        model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs, pretrained)
         test(model, test_dataloader, device, model_path, scores_path)
 
 
