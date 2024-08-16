@@ -36,8 +36,6 @@ Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-t
 
 ## Metrics used to record results:
 
-In folder scores you can follow scores.txt which contains the result of models:
-
 - **Dice Score:** 2 * (number of common elements) / (number of elements in set A + number of elements in set B)
 - **Accuracy:** Overall correctness of the model's predictions.
 - **Precision:** Proportion of true positive predictions out of all positive predictions.
