@@ -58,6 +58,27 @@ After these improvements, I was able to achieve the following results:
 - Precision: 89.33%
 - Recall: 83.04%
 
+## My training results: 
+
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output0.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output1.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output2.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output3.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output4.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output5.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output6.png)
+![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output7.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
