@@ -163,3 +163,4 @@ cython_debug/
 .idea/
 data/
 split_data/
+best_model/
