@@ -10,8 +10,9 @@ valid_masks: "../data/split_data/masks/valid"
 
 model_path: '../best_model/saved_model.pth'
 scores_path: '../scores/scores.txt'
+photos_dir: '../photos/output'
 
-pretrained: False
-batch_size: 8
+pretrained: True
+batch_size: 16
 epochs: 10000
 

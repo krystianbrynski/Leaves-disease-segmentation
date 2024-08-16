@@ -70,7 +70,7 @@ def datasets(train_images_dir: str, test_images_dir: str, train_masks_dir: str, 
         masks_dir=train_masks_dir,
         transform=transform_train,
         train=True,
-        scale_photos=1
+        scale_photos=5
     )
 
     test_dataset = LeafSegmentationDataset(

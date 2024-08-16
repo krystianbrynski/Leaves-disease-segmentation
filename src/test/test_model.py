@@ -21,7 +21,7 @@ def show_images(images, titles=None, filename=None) -> None:
     plt.close(fig)
 
 
-def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str):
+def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str, photos_dir: str):
     model.load_state_dict(torch.load(model_path))
     model.eval()
     precision_metric = torchmetrics.Precision(num_classes=1, threshold=0.5, task='binary').to(device)
@@ -55,7 +55,7 @@ def test(model, test_dataloader: DataLoader, device: torch.device, model_path: s
                     y_img = T.ToPILImage()(masks[i].cpu().squeeze())
                     pred_img = T.ToPILImage()(outputs[i].cpu().squeeze())
                     show_images([x_img, y_img, pred_img], titles=["Input Image", "True Mask", "Predicted Mask"],
-                                filename='../photos/output' + str(i) + '.png')
+                                filename=photos_dir + str(i) + '.png')
                 first_batch = False
 
     accuracy = num_corrects / num_pixels * 100

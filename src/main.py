@@ -23,6 +23,7 @@ def run_pipeline(config) -> None:
 
         images_dir = config_data.get('images')  # load images dir
         masks_dir = config_data.get('masks')  # load masks dir
+        photos_dir = config_data.get('photos_dir')
 
         train_masks_dir = config_data.get('train_masks')  # load dir for train masks
         test_masks_dir = config_data.get('test_masks')  # load dir for test masks
@@ -55,7 +56,7 @@ def run_pipeline(config) -> None:
                                                                           batch_size)
 
         model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs, pretrained)
-        test(model, test_dataloader, device, model_path, scores_path)
+        test(model, test_dataloader, device, model_path, scores_path,photos_dir)
 
 
 if __name__ == "__main__":
