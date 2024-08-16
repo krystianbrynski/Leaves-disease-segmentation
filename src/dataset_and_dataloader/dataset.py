@@ -38,7 +38,7 @@ class LeafSegmentationDataset(Dataset):
 transform_train = A.Compose(
     [
         A.Resize(256, 256),
-        A.Rotate(limit=35, p=1),
+        A.Rotate(limit=35, p=0.6),
         A.RandomRotate90(p=1),
         A.Normalize(
             mean=(0.0, 0.0, 0.0),
@@ -70,7 +70,7 @@ def datasets(train_images_dir: str, test_images_dir: str, train_masks_dir: str, 
         masks_dir=train_masks_dir,
         transform=transform_train,
         train=True,
-        scale_photos=4
+        scale_photos=5
     )
 
     test_dataset = LeafSegmentationDataset(

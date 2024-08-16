@@ -43,7 +43,7 @@ class UpSample(nn.Module):
         return self.conv(x)
 
 
-class UNet(nn.Module):
+class Unet(nn.Module):
     def __init__(self, in_channels, num_classes):
         super().__init__()
         self.down_convolution_1 = DownSample(in_channels, 64)

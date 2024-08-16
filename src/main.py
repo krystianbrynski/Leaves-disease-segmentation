@@ -18,6 +18,7 @@ def run_pipeline(config) -> None:
         num_epochs = config_data.get('epochs')  # load num of epochs
 
         model_path = config_data.get('model_path')  # path to save model
+        scores_path = config_data.get('scores_path')  # patho to save scores
 
         images_dir = config_data.get('images')  # load images dir
         masks_dir = config_data.get('masks')  # load masks dir
@@ -53,7 +54,7 @@ def run_pipeline(config) -> None:
                                                                           batch_size)
 
         model, device = train(train_dataloader, valid_dataloader, model_path, num_epochs)
-        test(model, test_dataloader, device, model_path)
+        test(model, test_dataloader, device, model_path, scores_path)
 
 
 if __name__ == "__main__":

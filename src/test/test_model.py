@@ -3,7 +3,6 @@ import torchmetrics
 import torchvision.transforms as T
 from matplotlib import pyplot as plt
 from torch.utils.data import DataLoader
-from src.model.model import UNet
 
 
 def show_images(images, titles=None) -> None:
@@ -18,7 +17,7 @@ def show_images(images, titles=None) -> None:
     plt.show()
 
 
-def test(model: UNet, test_dataloader: DataLoader, device: torch.device, model_path: str):
+def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str):
     model.load_state_dict(torch.load(model_path))
     model.eval()
     precision_metric = torchmetrics.Precision(num_classes=1, threshold=0.5, task='binary').to(device)
@@ -59,7 +58,9 @@ def test(model: UNet, test_dataloader: DataLoader, device: torch.device, model_p
     avg_val_precision = precision_metric.compute()
     avg_val_recall = recall_metric.compute()
 
-    print(f"Got {num_corrects}/{num_pixels} with acc {accuracy:.4f}%")
-    print(f"Dice score: {average_dice_score:.4f}")
-    print(f"Precision: {avg_val_precision:.4f}")
-    print(f"Recall: {avg_val_recall:.4f}")
+    with open(scores_path, "w") as file:  # save scores to txt
+        file.write(f"Got {num_corrects}/{num_pixels} with acc {accuracy:.4f}%\n")
+        file.write(f"Dice score: {average_dice_score:.4f}\n")
+        file.write(f"Precision: {avg_val_precision:.4f}\n")
+        file.write(f"Recall: {avg_val_recall:.4f}\n")
+
