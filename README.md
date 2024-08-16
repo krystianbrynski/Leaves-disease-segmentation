@@ -4,10 +4,11 @@ The aim of the project is to perform binary segmentation, specifically to train 
 
 I used Jupyter Notebook to analyze the data (photos) and also I chose the Unet model.
 
-Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
 Model architecture: 
 ![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/Unet.png)
+
+Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
 ## Description of files:
 - **main.py -**

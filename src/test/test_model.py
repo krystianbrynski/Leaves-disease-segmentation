@@ -5,16 +5,20 @@ from matplotlib import pyplot as plt
 from torch.utils.data import DataLoader
 
 
-def show_images(images, titles=None) -> None:
+def show_images(images, titles=None, filename=None) -> None:
     n = len(images)
     fig, axes = plt.subplots(1, n, figsize=(15, 15))
+
     for i, img in enumerate(images):
         ax = axes[i] if n > 1 else axes
         ax.imshow(img, cmap='gray')
         if titles:
             ax.set_title(titles[i])
         ax.axis('off')
-    plt.show()
+
+    # Save the figure to a file
+    plt.savefig(filename, bbox_inches='tight')
+    plt.close(fig)
 
 
 def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str):
@@ -50,7 +54,8 @@ def test(model, test_dataloader: DataLoader, device: torch.device, model_path: s
                     x_img = T.ToPILImage()(images[i].cpu().squeeze())
                     y_img = T.ToPILImage()(masks[i].cpu().squeeze())
                     pred_img = T.ToPILImage()(outputs[i].cpu().squeeze())
-                    show_images([x_img, y_img, pred_img], titles=["Input Image", "True Mask", "Predicted Mask"])
+                    show_images([x_img, y_img, pred_img], titles=["Input Image", "True Mask", "Predicted Mask"],
+                                filename='../photos/output' + str(i) + '.png')
                 first_batch = False
 
     accuracy = num_corrects / num_pixels * 100
@@ -63,4 +68,3 @@ def test(model, test_dataloader: DataLoader, device: torch.device, model_path: s
         file.write(f"Dice score: {average_dice_score:.4f}\n")
         file.write(f"Precision: {avg_val_precision:.4f}\n")
         file.write(f"Recall: {avg_val_recall:.4f}\n")
-
