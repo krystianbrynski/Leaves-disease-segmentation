@@ -10,7 +10,7 @@ Model architecture:
 
 Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
-## Description of files:
+## Description of files
 - **main.py -**
   Main file where function calls from other files are located.
 
@@ -34,14 +34,14 @@ Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-t
 
 - **scores.txt** - It keeps model scores
 
-## Metrics used to record results:
+## Metrics used to record results
 
 - **Dice Score:** 2 * (number of common elements) / (number of elements in set A + number of elements in set B)
 - **Accuracy:** Overall correctness of the model's predictions.
 - **Precision:** Proportion of true positive predictions out of all positive predictions.
 - **Recall:** Proportion of true positive predictions out of all actual positive instances.
 
-## To improve the model's performance, I used
+## To improve the model's performance
 
 - I used a pre-trained model, which give better results than my implemented one
 - I increased the training data size five times and applied augmentation to each image.
