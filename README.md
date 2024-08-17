@@ -6,7 +6,7 @@ I used Jupyter Notebook to analyze the data (photos) and also I chose the Unet m
 
 
 Model architecture: 
-![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/Unet.png)
+![U-Net_Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/Unet.png)
 
 Data: https://www.kaggle.com/datasets/sovitrath/leaf-disease-segmentation-with-trainvalid-split
 
@@ -56,8 +56,7 @@ After these improvements, I was able to achieve the following results:
 - Precision: 89.33%
 - Recall: 83.04%
 
-## My training results: 
-
+## My training results:
 ![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output0.png)
 ![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output1.png)
 ![U-Net Architecture](https://github.com/krystianbrynski/Leaves-disease-segmentation/raw/main/photos/output2.png)
