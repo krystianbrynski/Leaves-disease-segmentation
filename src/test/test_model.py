@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from torch.utils.data import DataLoader
 
 
-def show_images(images, titles=None, filename=None) -> None:
+def show_save_images(images, titles=None, filename=None) -> None:
     n = len(images)
     fig, axes = plt.subplots(1, n, figsize=(15, 15))
 
@@ -15,6 +15,9 @@ def show_images(images, titles=None, filename=None) -> None:
         if titles:
             ax.set_title(titles[i])
         ax.axis('off')
+
+    # Show photos
+    plt.show()
 
     # Save the figure to a file
     plt.savefig(filename, bbox_inches='tight')
@@ -54,8 +57,8 @@ def test(model, test_dataloader: DataLoader, device: torch.device, model_path: s
                     x_img = T.ToPILImage()(images[i].cpu().squeeze())
                     y_img = T.ToPILImage()(masks[i].cpu().squeeze())
                     pred_img = T.ToPILImage()(outputs[i].cpu().squeeze())
-                    show_images([x_img, y_img, pred_img], titles=["Input Image", "True Mask", "Predicted Mask"],
-                                filename=photos_dir + str(i) + '.png')
+                    show_save_images([x_img, y_img, pred_img], titles=["Input Image", "True Mask", "Predicted Mask"],
+                                     filename=photos_dir + str(i) + '.png')
                 first_batch = False
 
     accuracy = num_corrects / num_pixels * 100
