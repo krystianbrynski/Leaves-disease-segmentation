@@ -16,11 +16,10 @@ def show_save_images(images, titles=None, filename=None) -> None:
             ax.set_title(titles[i])
         ax.axis('off')
 
-    # Show photos
-    plt.show()
-
     # Save the figure to a file
     plt.savefig(filename, bbox_inches='tight')
+    # Show photos
+    plt.show()
     plt.close(fig)
 
 

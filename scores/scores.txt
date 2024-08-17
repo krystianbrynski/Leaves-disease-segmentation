@@ -1,4 +1,4 @@
-Got 3670664/3866624 with acc 94.9320%
-Dice score: 0.8358
-Precision: 0.8555
-Recall: 0.8271
+Got 3698112/3866624 with acc 95.6419%
+Dice score: 0.8571
+Precision: 0.8933
+Recall: 0.8304
