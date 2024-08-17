@@ -24,7 +24,7 @@ def show_save_images(images, titles=None, filename=None) -> None:
     plt.close(fig)
 
 
-def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str, photos_dir: str):
+def test(model, test_dataloader: DataLoader, device: torch.device, model_path: str, scores_path: str, photos_dir: str) -> None:
     model.load_state_dict(torch.load(model_path))
     model.eval()
     precision_metric = torchmetrics.Precision(num_classes=1, threshold=0.5, task='binary').to(device)

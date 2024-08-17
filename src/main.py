@@ -23,7 +23,7 @@ def run_pipeline(config) -> None:
 
         images_dir = config_data.get('images')  # load images dir
         masks_dir = config_data.get('masks')  # load masks dir
-        photos_dir = config_data.get('photos_dir')
+        photos_dir = config_data.get('photos_dir')  # load photos dir
 
         train_masks_dir = config_data.get('train_masks')  # load dir for train masks
         test_masks_dir = config_data.get('test_masks')  # load dir for test masks
