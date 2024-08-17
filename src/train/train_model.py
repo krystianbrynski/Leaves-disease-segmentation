@@ -47,8 +47,8 @@ def train(train_dataloader, valid_dataloader, model_path: str, num_epochs: int, 
                 loss = criterion(outputs, masks)
                 val_loss += loss.item()
 
-                outputs = torch.sigmoid(model(images))
-                outputs = (outputs >= 0.5).float()
+                outputs[outputs > 0] = 1
+                outputs[outputs < 0] = 0
 
                 dice_score += (2 * (outputs * masks).sum().item()) / (
                         (outputs + masks).sum().item() + 1e-8
